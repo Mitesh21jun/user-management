@@ -23,4 +23,4 @@ class UserManagement {
 
     
 }
-export default new UserManagement;
+export default new UserManagement();

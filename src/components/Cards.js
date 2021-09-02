@@ -1,39 +1,49 @@
-import React, { useEffect, useState } from 'react'
-import userManagement from '../services/user-management';
-import Card from './Card';
+import React, { useEffect, useState, useMemo } from "react";
+import userManagement from "../services/user-management";
+import Card from "./Card";
+import UserForm from "./UserForm";
 
-function Cards() {
+const Cards = () => {
+  //   const [email, setEmail] = useState("");
+  //   const [firstName, setFirstName] = useState("");
+  //   const [lastName, setLastName] = useState("");
+  //   const [pwd, setPwd] = useState("");
+  //   const [userName, setUserName] = useState("");
+  const [allUsers, setAllUsers] = useState([]);
 
-    
-    const [email, setEmail] = useState('');
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [pwd, setPwd] = useState('');
-    const [userName, setUserName] = useState('');
-    const [allUsers, setAllUsers] = useState([]);
-    
-    const getAllUsers = () => {
-        userManagement.getAllUsers()
-          .then((response) => {
-              setAllUsers(response.data)
-              console.log(allUsers)
+  const getAllUser = async () => {
+    await userManagement
+      .getAllUsers()
+      .then((response) => {
+        setAllUsers(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
-          })
-          .catch((e) => {
-            console.log(e);
-          });
-    };
+  useEffect(() => {
+    getAllUser();
+  }, []);
 
-    useEffect(() => {
-        getAllUsers()
-    }, [allUsers])
-    
-    
+  useEffect(() => {
+    setTimeout(function () {
+      getAllUser();
+    }, 3000);
+
+    // getAllUser();
+  }, [allUsers]);
+
+  return allUsers.map((user) => {
     return (
-        allUsers.map(user => {
-            return (<Card firstName={user.fist_name||user.first_name} lastName={user.last_name}/>)
-        })
-    )
-}
+      <Card
+        key={Math.random()}
+        firstName={user.fist_name || user.first_name}
+        lastName={user.last_name}
+        email={user.email}
+      />
+    );
+  });
+};
 
-export default Cards
+export default Cards;
