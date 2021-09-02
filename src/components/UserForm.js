@@ -25,10 +25,11 @@ const UserForm=()=> {
     };
 
     return (
-      <form action="" className='col-5 mt-5' onSubmit={addNewUser}>
+      <form action="" className='mt-2' onSubmit={addNewUser}>
       <h3>Add new user</h3>
 
-      <div className="form-group">
+        <div className="d-inline-flex">
+        <div className="form-group m-2">
         <label>First Name</label>
         <input
           type="text"
@@ -42,7 +43,7 @@ const UserForm=()=> {
       </div>
         <br />
         
-        <div className="form-group">
+        <div className="form-group m-2">
         <label>Last Name</label>
         <input
           type="text"
@@ -53,10 +54,8 @@ const UserForm=()=> {
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
-      </div>
-        <br />
-
-        <div className="form-group">
+          </div>
+          <div className="form-group m-2">
         <label>Username</label>
         <input
           type="text"
@@ -68,9 +67,14 @@ const UserForm=()=> {
           onChange={(e) => setUserName(e.target.value)}
         />
       </div>
+</div>
+        <br />
+
+        <div className="d-inline-flex">
+      
       <br />
         
-      <div className="form-group">
+      <div className="form-group m-2">
         <label>Email address</label>
         <input
           type="email"
@@ -81,10 +85,8 @@ const UserForm=()=> {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-      </div>
-      <br />
-
-      <div className="form-group">
+          </div>
+          <div className="form-group m-2">
         <label>Password</label>
         <input
           type="password"
@@ -96,12 +98,18 @@ const UserForm=()=> {
           onChange={(e) => setPwd(e.target.value)}
         />
       </div>
-        <br />
+  
+      </div>
+      <button type="submit" className="btn btn-primary">Submit  </button>
+
+        
+
+
         
     
     
     
-      <button type="submit" className="btn btn-primary btn-block">Submit  </button>
+
     
     </form>
     )

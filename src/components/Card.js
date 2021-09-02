@@ -21,14 +21,16 @@ const Card = ({ email, firstName, lastName, pwd, userName }) =>
   };
   
   return (
-    <div className="row">  
-      <div className='card col-3'>
-        <div className="card-body">
+
+      <div className='card col-3 mt-3 single-card'>
+        <div className="card-body d-inline-flex">
           <h5>{firstName} {lastName}</h5>
-        </div>
-      <button email={email} onClick={deleteUsers} className="btn btn-primary btn-block mb-3">Delete</button>
+          <i email={email} onClick={deleteUsers} className="mt-1 trash-icon fa fa-trash fa-lg"></i>
       </div>
+      
+      {/* <button email={email} onClick={deleteUsers} className="btn btn-primary btn-block mb-3">Delete</button> */}
       </div>
+  
     )
 }
 

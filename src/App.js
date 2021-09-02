@@ -5,10 +5,19 @@ import UserForm from "./components/UserForm";
 
 function App() {
   return (
-    <>
+    <div className='App'>
+      <div className="cards border border-dark border-1">
+
+
       <Cards />
+      </div>
+
+      <div className="user-form border-dark border-1">
+
       <UserForm />
-    </>
+
+      </div>
+    </div>
   );
 }
 

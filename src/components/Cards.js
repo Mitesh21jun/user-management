@@ -29,7 +29,7 @@ const Cards = () => {
   useEffect(() => {
     setTimeout(function () {
       getAllUser();
-    }, 3000);
+    }, 2000);
 
     // getAllUser();
   }, [allUsers]);
